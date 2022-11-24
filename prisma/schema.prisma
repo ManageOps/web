@@ -36,3 +36,13 @@ model Note {
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   userId String
 }
+
+model RequestForPaper {
+  id         String  @id @default(cuid())
+  name       String
+  pronouns   String?
+  email      String
+  talk_type  String?
+  talk_topic String?
+  consent    Boolean
+}
