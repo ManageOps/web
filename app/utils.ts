@@ -69,3 +69,17 @@ export function useUser(): User {
 export function validateEmail(email: unknown): email is string {
   return typeof email === "string" && email.length > 3 && email.includes("@");
 }
+
+export const safeString = (value: FormDataEntryValue | null): string => {
+  if (typeof value !== "string") {
+    throw Error("Field is not a string");
+  }
+  return value;
+};
+
+export const safeBoolean = (value: FormDataEntryValue | null): boolean => {
+  if (typeof value !== "string") {
+    throw Error("Field is not a boolean");
+  }
+  return !!value;
+};
