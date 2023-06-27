@@ -9,11 +9,19 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
-import tailwindStylesheetUrl from "./styles/tailwind.css";
+import resetStylesheetUrl from "./styles/reset.css";
+import mainStylesheetUrl from "./styles/main.css";
 import { getUser } from "./session.server";
 
 export const links: LinksFunction = () => {
-  return [{ rel: "stylesheet", href: tailwindStylesheetUrl }];
+  return [
+    {
+      rel: "stylesheet",
+      href: "https://fonts.bunny.net/css?family=dm-serif-display:400|poppins:600",
+    },
+    { rel: "stylesheet", href: resetStylesheetUrl },
+    { rel: "stylesheet", href: mainStylesheetUrl },
+  ];
 };
 
 export const meta: MetaFunction = () => ({
